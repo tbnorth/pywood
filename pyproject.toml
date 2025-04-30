@@ -7,7 +7,10 @@ authors = [
     { name = "Terry N. Brown", email = "terrynbrown@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pydantic>=2.11.3",
+    "pytest>=8.3.5",
+]
 
 [project.scripts]
 pywood = "pywood:main"
@@ -15,3 +18,18 @@ pywood = "pywood:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+# requires = ['setuptools']
+# build-backend = 'setuptools.build_meta'
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+pythonpath = [
+  "src"
+]
